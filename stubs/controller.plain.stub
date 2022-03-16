@@ -1,0 +1,39 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ rootNamespace }}Http\Controllers\Controller;
+use App\Models\ModelName;
+use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Support\Facades\DB;
+use App\Http\Requests\ModelRequest;
+use Illuminate\Http\Request;
+
+class {{ class }} extends Controller
+{
+    
+    function store(Request $req){
+     return {{ class }}::create($req->all());
+    }
+
+    function getAll{{ class }}(){
+      return {{ class }}::all();     
+    }
+
+    function update(Request $req){
+        $temp = {{ class }}::find($req->id);
+        $temp->update($req->all());
+        return $temp;
+    }
+
+    function get{{ class }}ById(Request $req){
+      return {{ class }}::find($req->id);     
+    }
+
+    function delete{{ class }}ById(Request $req){
+        $temp = {{ class }}::find($req->id);
+        $temp->delete();
+    }
+
+}
