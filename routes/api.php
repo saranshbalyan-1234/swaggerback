@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ImportController;
 use App\Http\Controllers\SwaggerController;
+use App\Http\Controllers\ModelController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,13 +22,17 @@ use App\Http\Controllers\SwaggerController;
 // });
 Route::group(['middleware'=>['auth:sanctum']],function () {
     Route::post('/getUserById', [UserController::class, 'getUserById']);
-
+    Route::post('/logout', [UserController::class, 'logout']);
 
 });
 Route::post('/import', [ImportController::class, 'import']);
-Route::post('/importSingleModel', [ImportController::class, 'importSingleModel']);
+
+Route::post('/importSingleModel', [ModelController::class, 'importSingleModel']);
+Route::get('/getAllModels', [ModelController::class, 'getAllModels']);
+
 Route::post('/createProject', [ImportController::class, 'createProject']);
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
+
 
 Route::get('/get', [SwaggerController::class, 'get']);
