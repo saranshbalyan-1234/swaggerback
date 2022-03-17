@@ -18,7 +18,9 @@ class SwaggerController extends Controller
     function get(Request $req){
       $info=Info::all();
 
-      $tags = Tag::where(['project_id' => 4])->get();
+      $tags = Tag::where(['project_id' => $req->project_id])->get();
+      $paths=Path::where(['project_id' => $req->project_id])->get();
+      $models=Models::where(['project_id' => $req->project_id])->get();
       $temp = $tags->toArray();
       $temp1=[];
       foreach ($temp as $el){ 
@@ -26,13 +28,8 @@ class SwaggerController extends Controller
       if($el['external_desc']!=null){ $el['externalDocs']['description']=$el['external_desc']; }
       if($el['external_url']!=null){ $el['externalDocs']['url']=$el['external_url']; }
       array_push($temp1, $el);
-
-      $paths=Path::where(['project_id' => 4])->get();
-      $models=Models::where(['project_id' => 4])->get();
-     
         }
-        // return $temp3;
-// return $temp1;
+
      return response()->json([
      "paths" => "2.0",
      "swagger" => "2.0",

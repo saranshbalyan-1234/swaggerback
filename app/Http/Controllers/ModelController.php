@@ -24,8 +24,11 @@ class ModelController extends Controller
    return $model;
 }
 function getAllModels(){
-
  return Models::all();
 }
+function delete(Request $req){
+ Models::find($req->id)->delete();
+   return response()->json(["status"=>"deleted"]);
+ }
 
 }

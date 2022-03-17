@@ -26,6 +26,7 @@ class ImportController extends Controller
     function createProject(Request $req){
       $project= new Project;
       $project->name="newProject";
+      $project->user_id=Auth::user()->id;
       $project->save();
       return $project;
     }

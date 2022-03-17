@@ -23,16 +23,17 @@ use App\Http\Controllers\ModelController;
 Route::group(['middleware'=>['auth:sanctum']],function () {
     Route::post('/getUserById', [UserController::class, 'getUserById']);
     Route::post('/logout', [UserController::class, 'logout']);
-
+    Route::post('/createProject', [ImportController::class, 'createProject']);
 });
 Route::post('/import', [ImportController::class, 'import']);
 
 Route::post('/importSingleModel', [ModelController::class, 'importSingleModel']);
 Route::get('/getAllModels', [ModelController::class, 'getAllModels']);
+Route::post('/deleteModel', [ModelController::class, 'delete']);
 
-Route::post('/createProject', [ImportController::class, 'createProject']);
+
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
 
 
-Route::get('/get', [SwaggerController::class, 'get']);
+Route::post('/get', [SwaggerController::class, 'get']);
