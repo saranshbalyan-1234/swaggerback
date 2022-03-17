@@ -25,6 +25,7 @@ Route::group(['middleware'=>['auth:sanctum']],function () {
 
 });
 Route::post('/import', [ImportController::class, 'import']);
+Route::post('/importSingleModel', [ImportController::class, 'importSingleModel']);
 Route::post('/createProject', [ImportController::class, 'createProject']);
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
