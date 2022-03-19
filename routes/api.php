@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ImportController;
 use App\Http\Controllers\SwaggerController;
 use App\Http\Controllers\ModelController;
+use App\Http\Controllers\ProjectController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,7 +24,9 @@ use App\Http\Controllers\ModelController;
 Route::group(['middleware'=>['auth:sanctum']],function () {
     Route::post('/getUserById', [UserController::class, 'getUserById']);
     Route::post('/logout', [UserController::class, 'logout']);
-    Route::post('/createProject', [ImportController::class, 'createProject']);
+    Route::post('/createProject', [ProjectController::class, 'createProject']);
+    Route::get('/getAllProjectByUser', [ProjectController::class, 'getAllProjectByUser']);
+
 });
 Route::post('/import', [ImportController::class, 'import']);
 

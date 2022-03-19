@@ -17,7 +17,6 @@ class SwaggerController extends Controller
     
     function get(Request $req){
       $info=Info::all();
-
       $tags = Tag::where(['project_id' => $req->project_id])->get();
       $paths=Path::where(['project_id' => $req->project_id])->get();
       $models=Models::where(['project_id' => $req->project_id])->get();
@@ -36,6 +35,7 @@ class SwaggerController extends Controller
      "info"=>$info[0],
      "basePath"=>$info[0]['basePath'],
      "host"=>$info[0]['host'],
+     "schemes"=>json_decode($info[0]['schemes']),
      "tags"=>$temp1,
      "path"=>$paths,
      "models"=>$models,

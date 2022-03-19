@@ -23,13 +23,7 @@ class ImportController extends Controller
      return "imported";
     }
 
-    function createProject(Request $req){
-      $project= new Project;
-      $project->name="newProject";
-      $project->user_id=Auth::user()->id;
-      $project->save();
-      return $project;
-    }
+   
 
 
     function importInfo(Request $req){
@@ -43,6 +37,7 @@ class ImportController extends Controller
       if(isset($req->info['contact'])) $info->contact=json_encode($req->info['contact']);
       if(isset($req->info['license'])) $info->license=json_encode($req->info['license']);
       if(isset($req->schemes)) $info->schemes=json_encode($req->schemes);
+      if(isset($req->servers)) $info->schemes=json_encode($req->servers);
       if(isset($req->host)) $info->host=$req->host;
       if(isset($req->basePath)) $info->basePath=$req->basePath;
       $info->save();

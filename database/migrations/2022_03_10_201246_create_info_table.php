@@ -24,6 +24,7 @@ class CreateInfoTable extends Migration
             $table->string('host')->nullable();
             $table->string('basePath')->nullable();
             $table->string('schemes')->nullable();
+            $table->string('servers')->nullable();
             $table->foreignId('project_id');
             $table->foreign('project_id')
             ->references('id')->on('projects'); 
