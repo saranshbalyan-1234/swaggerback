@@ -36,6 +36,7 @@ class SwaggerController extends Controller
      "basePath"=>$info[0]['basePath'],
      "host"=>$info[0]['host'],
      "schemes"=>json_decode($info[0]['schemes']),
+     "servers"=>json_decode($info[0]['servers']),
      "tags"=>$temp1,
      "path"=>$paths,
      "models"=>$models,
