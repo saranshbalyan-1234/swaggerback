@@ -15,7 +15,7 @@ class CreateInfoTable extends Migration
     {
         Schema::create('info', function (Blueprint $table) {
             $table->id();
-            $table->json('description')->nullable();
+            $table->longText('description')->nullable();
             $table->string('version')->nullable();
             $table->string('title')->nullable();
             $table->string('termsOfService')->nullable();

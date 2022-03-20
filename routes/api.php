@@ -35,15 +35,15 @@ Route::group(['middleware'=>['auth:sanctum']],function () {
 });
 Route::post('/import', [ImportController::class, 'import']);
 
-Route::post('/importSingleModel', [ModelController::class, 'importSingleModel']);
+Route::post('/addModel', [ModelController::class, 'addModel']);
 Route::get('/getAllModels', [ModelController::class, 'getAllModels']);
 Route::post('/deleteModel', [ModelController::class, 'delete']);
 
 Route::post('/addTag', [TagController::class, 'addTag']);
 Route::post('/deleteTag', [TagController::class, 'deleteTag']);
 
-Route::post('/addPath', [TagController::class, 'addPath']);
-Route::post('/deletePath', [TagController::class, 'deletePath']);
+Route::post('/addPath', [PathController::class, 'addPath']);
+Route::post('/deletePath', [PathController::class, 'deletePath']);
 
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);

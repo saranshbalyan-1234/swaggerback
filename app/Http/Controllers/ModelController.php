@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class ModelController extends Controller
 {
     
-  function importSingleModel(Request $req){
+  function addModel(Request $req){
     
     $model = new Models;
     $model->name=$req->name;
