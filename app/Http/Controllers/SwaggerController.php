@@ -16,7 +16,7 @@ class SwaggerController extends Controller
 {
     
     function get(Request $req){
-      $info=Info::all();
+      $info=Info::where(['project_id' => $req->project_id])->first();
       $tags = Tag::where(['project_id' => $req->project_id])->get();
       $paths=Path::where(['project_id' => $req->project_id])->get();
       $models=Models::where(['project_id' => $req->project_id])->get();
@@ -32,11 +32,11 @@ class SwaggerController extends Controller
      return response()->json([
      "paths" => "2.0",
      "swagger" => "2.0",
-     "info"=>$info[0],
-     "basePath"=>$info[0]['basePath'],
-     "host"=>$info[0]['host'],
-     "schemes"=>json_decode($info[0]['schemes']),
-     "servers"=>json_decode($info[0]['servers']),
+     "info"=>$info,
+     "basePath"=>$info&&$info['basePath'],
+     "host"=>$info&&$info['host'],
+     "schemes"=>$info&&json_decode($info['schemes']),
+     "servers"=>$info&&json_decode($info['servers']),
      "tags"=>$temp1,
      "path"=>$paths,
      "models"=>$models,
