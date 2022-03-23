@@ -23,8 +23,8 @@ class ModelController extends Controller
     $model->save();
    return $model;
 }
-function getAllModels(){
- return Models::all();
+function getAllModels(Request $req){
+ return Models::where(['project_id' => $req->project_id])->get();
 }
 function delete(Request $req){
  Models::find($req->id)->delete();

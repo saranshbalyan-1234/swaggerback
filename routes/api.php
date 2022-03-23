@@ -36,7 +36,7 @@ Route::group(['middleware'=>['auth:sanctum']],function () {
 Route::post('/import', [ImportController::class, 'import']);
 
 Route::post('/addModel', [ModelController::class, 'addModel']);
-Route::get('/getAllModels', [ModelController::class, 'getAllModels']);
+Route::post('/getAllModels', [ModelController::class, 'getAllModels']);
 Route::post('/deleteModel', [ModelController::class, 'delete']);
 
 Route::post('/addTag', [TagController::class, 'addTag']);
