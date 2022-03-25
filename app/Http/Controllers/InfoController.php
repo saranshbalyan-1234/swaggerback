@@ -12,12 +12,12 @@ use Illuminate\Http\Request;
 class InfoController extends Controller
 {
     
-    function store(Request $req){
-     return InfoController::create($req->all());
+    function addInfo(Request $req){
+     return Info::create($req->all());
     }
 
     function getAllInfoController(){
-      return InfoController::all();     
+      return Info::all();     
     }
 
     function update(Request $req){

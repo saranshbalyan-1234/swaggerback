@@ -14,7 +14,7 @@ class ProjectController extends Controller
     
   function createProject(Request $req){
     $project= new Project;
-    $project->name=$req->projectName;
+    // $project->name=$req->projectName;
     $project->user_id=Auth::user()->id;
     $project->save();
     return $project;

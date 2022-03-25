@@ -9,6 +9,7 @@ use App\Http\Controllers\ModelController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\PathController;
+use App\Http\Controllers\InfoController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -41,6 +42,8 @@ Route::post('/deleteModel', [ModelController::class, 'delete']);
 
 Route::post('/addTag', [TagController::class, 'addTag']);
 Route::post('/deleteTag', [TagController::class, 'deleteTag']);
+
+Route::post('/addInfo', [InfoController::class, 'addInfo']);
 
 Route::post('/addPath', [PathController::class, 'addPath']);
 Route::post('/deletePath', [PathController::class, 'deletePath']);

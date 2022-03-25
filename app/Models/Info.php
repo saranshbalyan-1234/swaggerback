@@ -14,6 +14,6 @@ class Info extends Model
 
 
     protected $fillable = [
-       'description','version','termsOfService','title','contact','license','host','basePath','schemes','project_id'
+       'description','version','title','contact','license','host','basePath','schemes','project_id'
     ];
 }
