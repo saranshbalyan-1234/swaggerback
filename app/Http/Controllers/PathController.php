@@ -20,8 +20,9 @@ class PathController extends Controller
       return PathController::all();     
     }
 
+
     function update(Request $req){
-        $temp = PathController::find($req->id);
+        $temp = Path::find($req->id);
         $temp->update($req->all());
         return $temp;
     }

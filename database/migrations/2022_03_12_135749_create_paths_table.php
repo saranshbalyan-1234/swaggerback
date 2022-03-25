@@ -27,6 +27,7 @@ class CreatePathsTable extends Migration
             $table->json('responses')->nullable();
             $table->json('security')->nullable();
             $table->json('requestBody')->nullable();
+            $table->boolean('deprecated')->nullable();
             $table->foreignId('project_id');
             $table->foreign('project_id')
             ->references('id')->on('projects'); 

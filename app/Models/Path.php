@@ -11,6 +11,6 @@ class Path extends Model
     protected $table="paths";
 
     protected $fillable = [
-        'path','type','summary','project_id','security','description','operationId','consumes','produces','tags','responses','parameters'
+        'path','type','summary','project_id','deprecated','security','description','operationId','consumes','produces','tags','responses','parameters'
      ];
 }

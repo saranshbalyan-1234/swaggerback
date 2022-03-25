@@ -40,6 +40,8 @@ Route::post('/addModel', [ModelController::class, 'addModel']);
 Route::post('/getAllModels', [ModelController::class, 'getAllModels']);
 Route::post('/deleteModel', [ModelController::class, 'delete']);
 
+
+
 Route::post('/addTag', [TagController::class, 'addTag']);
 Route::post('/deleteTag', [TagController::class, 'deleteTag']);
 
@@ -47,6 +49,8 @@ Route::post('/addInfo', [InfoController::class, 'addInfo']);
 
 Route::post('/addPath', [PathController::class, 'addPath']);
 Route::post('/deletePath', [PathController::class, 'deletePath']);
+Route::post('/update', [PathController::class, 'update']);
+
 
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
