@@ -10,5 +10,8 @@ class Project extends Model
     use HasFactory;
     protected $table="projects";
     protected $fillable = ['name'];
+    public function info()
+    {
+        return $this->hasOne(Info::class, 'project_id','id');
+    }
 }
-
