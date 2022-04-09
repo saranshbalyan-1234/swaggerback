@@ -31,7 +31,7 @@ Route::group(['middleware'=>['auth:sanctum']],function () {
 
     Route::post('/createProject', [ProjectController::class, 'createProject']);
     Route::get('/getAllProjectByUser', [ProjectController::class, 'getAllProjectByUser']);
-    Route::get('/deleteProjectById', [ProjectController::class, 'deleteProjectById']);
+    Route::post('/deleteProjectById', [ProjectController::class, 'deleteProjectById']);
     
 
 });
