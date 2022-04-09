@@ -21,7 +21,7 @@ class CreateTagsTable extends Migration
             $table->string('external_url')->nullable();
             $table->foreignId('project_id');
             $table->foreign('project_id')
-            ->references('id')->on('projects'); 
+            ->references('id')->on('projects')->onDelete('cascade'); 
             $table->timestamps();
         });
     }

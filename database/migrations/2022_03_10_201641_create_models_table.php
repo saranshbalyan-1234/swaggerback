@@ -21,7 +21,7 @@ class CreateModelsTable extends Migration
             $table->json('xml')->nullable();
             $table->foreignId('project_id');
             $table->foreign('project_id')
-            ->references('id')->on('projects'); 
+            ->references('id')->on('projects')->onDelete('cascade'); 
             $table->timestamps();
         });
     }

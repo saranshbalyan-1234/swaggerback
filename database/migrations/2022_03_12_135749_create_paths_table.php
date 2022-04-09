@@ -30,7 +30,7 @@ class CreatePathsTable extends Migration
             $table->boolean('deprecated')->nullable();
             $table->foreignId('project_id');
             $table->foreign('project_id')
-            ->references('id')->on('projects'); 
+            ->references('id')->on('projects')->onDelete('cascade'); 
             $table->timestamps();
         });
     }

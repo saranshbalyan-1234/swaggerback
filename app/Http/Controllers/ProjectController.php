@@ -34,9 +34,10 @@ class ProjectController extends Controller
       return ProjectController::find($req->id);     
     }
 
-    function deleteProjectControllerById(Request $req){
+    function deleteProjectById(Request $req){
         $temp = ProjectController::find($req->id);
         $temp->delete();
+        return "Deleted";
     }
 
 }
