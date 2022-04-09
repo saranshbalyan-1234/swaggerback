@@ -25,17 +25,17 @@ class ProjectController extends Controller
     }
 
     function update(Request $req){
-        $temp = ProjectController::find($req->id);
+        $temp = Project::find($req->id);
         $temp->update($req->all());
         return $temp;
     }
 
-    function getProjectControllerById(Request $req){
-      return ProjectController::find($req->id);     
+    function getProjectById(Request $req){
+      return Project::find($req->id);     
     }
 
     function deleteProjectById(Request $req){
-        $temp = ProjectController::find($req->id);
+        $temp = Project::find($req->id);
         $temp->delete();
         return "Deleted";
     }
