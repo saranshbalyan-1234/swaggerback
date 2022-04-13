@@ -41,7 +41,7 @@ class UserController extends Controller
         return $user;
     }
     function getAllUser(Request $req){
-        $projectUser= Project::select('user_id')->where(['id' => $req->project_id])->pluck('user_id')->toArray();
+        $projectUser= Project::select('user_id')->where(['id' => $req->project_id])-get();
         $allUser=User::all();     
       return response()->json(['projectUser' =>$projectUser,"allUser"=>$allUser]);
     }
