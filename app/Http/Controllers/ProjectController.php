@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\UserProject;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\DB;
@@ -15,13 +16,18 @@ class ProjectController extends Controller
   function createProject(Request $req){
     $project= new Project;
     // $project->name=$req->projectName;
-    $project->user_id=Auth::user()->id;
+    // $project->user_id=Auth::user()->id;
     $project->save();
+    $userProject=new UserProject();
+    $userProject->user_id=Auth::user()->id;
+    $userProject->project_id=$project->id;
+    $userProject->admin=$req->admin;
+    $userProject->save();
     return $project;
   }
 
     function getAllProjectByUser(){
-      return Project::where(['user_id' =>Auth::user()->id])->with('info')->get();     
+      return UserProject::where(['user_id' =>Auth::user()->id])->with('info')->get();     
     }
 
     function update(Request $req){

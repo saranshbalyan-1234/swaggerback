@@ -15,10 +15,10 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->boolean('admin')->default(1);
-            $table->foreignId('user_id');
-            $table->foreign('user_id')
-            ->references('id')->on('users')->onDelete('cascade'); 
+            // $table->boolean('admin')->default(1);
+            // $table->foreignId('user_id');
+            // $table->foreign('user_id')
+            // ->references('id')->on('users')->onDelete('cascade'); 
             $table->timestamps();
         });
     }
