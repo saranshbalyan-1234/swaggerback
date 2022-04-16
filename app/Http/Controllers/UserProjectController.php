@@ -13,7 +13,8 @@ class UserProjectController extends Controller
 {
     
     function addUserToProject(Request $req){
-     return UserProject::create($req->all());
+   $project= UserProject::create($req->all());
+     return $project;
     }
 
     function getAllProjectByUser(){
