@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Project;
+use App\Models\UserProject;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -41,7 +42,7 @@ class UserController extends Controller
         return $user;
     }
     function getAllUser(Request $req){
-        $projectUser= Project::select('user_id')->where(['id' => $req->project_id])->get();
+        $projectUser= UserProject::where(['project_id' => $req->project_id])->with('user')->get();
         $allUser=User::all();     
       return response()->json(['projectUser' =>$projectUser,"allUser"=>$allUser]);
     }

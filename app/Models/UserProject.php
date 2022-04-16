@@ -14,6 +14,11 @@ class UserProject extends Model
 
     public function info()
     {
-        return $this->hasOne(Info::class, 'project_id','id');
+        return $this->hasOne(Info::class, 'project_id','project_id');
     }
+     public function user()
+    {
+        return $this->hasOne(User::class, 'id','user_id');
+    }
+    
 }

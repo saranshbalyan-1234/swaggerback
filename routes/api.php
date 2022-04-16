@@ -7,6 +7,7 @@ use App\Http\Controllers\ImportController;
 use App\Http\Controllers\SwaggerController;
 use App\Http\Controllers\ModelController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\UserProjectController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\PathController;
 use App\Http\Controllers\InfoController;
@@ -30,8 +31,10 @@ Route::group(['middleware'=>['auth:sanctum']],function () {
     Route::post('/logout', [UserController::class, 'logout']);
 
     Route::post('/createProject', [ProjectController::class, 'createProject']);
-    Route::get('/getAllProjectByUser', [ProjectController::class, 'getAllProjectByUser']);
     Route::post('/deleteProjectById', [ProjectController::class, 'deleteProjectById']);
+
+    Route::get('/getAllProjectByUser', [UserProjectController::class, 'getAllProjectByUser']);
+    Route::post('addUserToProject', [UserProjectController::class, 'addUserToProject']);
     
 
 });

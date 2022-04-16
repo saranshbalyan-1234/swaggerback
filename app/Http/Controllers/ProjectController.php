@@ -26,9 +26,7 @@ class ProjectController extends Controller
     return $project;
   }
 
-    function getAllProjectByUser(){
-      return UserProject::where(['user_id' =>Auth::user()->id])->with('info')->get();     
-    }
+    
 
     function update(Request $req){
         $temp = Project::find($req->id);
