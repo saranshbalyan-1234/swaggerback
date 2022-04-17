@@ -43,9 +43,13 @@ class UserController extends Controller
     }
     function getAllUser(Request $req){
         $projectUser= UserProject::where(['project_id' => $req->project_id])->with('user')->get();
-        $allUser=User::all();     
+        $allUser=DB::table('users')->select('users.id','users.name','users.email')
+            ->leftJoin('user_projects', 'users.id', '=', 'user_projects.user_id')
+            ->whereNull('user_projects.user_id')
+            ->get();;
       return response()->json(['projectUser' =>$projectUser,"allUser"=>$allUser]);
     }
+    
        function login(Request $req){   
         
         $check=false;

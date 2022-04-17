@@ -58,6 +58,7 @@ Route::post('/update', [PathController::class, 'update']);
 
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/getAllUser', [UserController::class, 'getAllUser']);
+Route::get('/test', [UserController::class, 'test']);
 Route::post('/login', [UserController::class, 'login']);
 
 
