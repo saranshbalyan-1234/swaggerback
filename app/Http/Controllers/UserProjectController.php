@@ -31,9 +31,10 @@ return response()->json($project, 200);
       return UserProjectController::find($req->id);     
     }
 
-    function deleteUserProjectControllerById(Request $req){
-        $temp = UserProjectController::find($req->id);
+    function deleteUserFromProject(Request $req){
+        $temp = UserProject::where(['user_id' =>$req->user_id]);
         $temp->delete();
+        return "User Removed";
     }
 
 }
