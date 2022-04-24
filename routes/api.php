@@ -51,6 +51,7 @@ Route::post('/addTag', [TagController::class, 'addTag']);
 Route::post('/deleteTag', [TagController::class, 'deleteTag']);
 
 Route::post('/addInfo', [InfoController::class, 'addInfo']);
+Route::post('/updateInfo', [InfoController::class, 'updateInfo']);
 
 Route::post('/addPath', [PathController::class, 'addPath']);
 Route::post('/deletePath', [PathController::class, 'deletePath']);

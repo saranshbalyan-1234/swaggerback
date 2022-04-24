@@ -20,8 +20,8 @@ class InfoController extends Controller
       return Info::all();     
     }
 
-    function update(Request $req){
-        $temp = InfoController::find($req->id);
+    function updateInfo(Request $req){
+        $temp = Info::find($req->project_id);
         $temp->update($req->all());
         return $temp;
     }
