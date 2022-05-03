@@ -40,6 +40,7 @@ class ProjectController extends Controller
 
     function deleteProjectById(Request $req){
         $temp = Project::find($req->id);
+        UserProject::where(['project_id'=>$temp->id])->delete();
         $temp->delete();
         return "Deleted";
     }
